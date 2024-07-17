@@ -1,0 +1,14 @@
+<!-- pagination.html -->
+{% macro render_pagination(posts) %}
+    {% if posts.has_prev %}
+        <a href="{{ url_for(request.endpoint, page=posts.prev_num) }}" class="btn btn-outline-primary">&larr; Previous</a>
+    {% else %}
+        <span class="btn btn-outline-secondary disabled">&larr; Previous</span>
+    {% endif %}
+
+    {% if posts.has_next %}
+        <a href="{{ url_for(request.endpoint, page=posts.next_num) }}" class="btn btn-outline-primary">Next &rarr;</a>
+    {% else %}
+        <span class="btn btn-outline-secondary disabled">Next &rarr;</span>
+    {% endif %}
+{% endmacro %}
